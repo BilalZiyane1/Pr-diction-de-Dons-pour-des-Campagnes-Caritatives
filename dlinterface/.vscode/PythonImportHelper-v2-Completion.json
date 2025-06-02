@@ -1,0 +1,361 @@
+[
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "joblib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "joblib",
+        "description": "joblib",
+        "detail": "joblib",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "TabNetRegressor",
+        "importPath": "pytorch_tabnet.tab_model",
+        "description": "pytorch_tabnet.tab_model",
+        "isExtraImport": true,
+        "detail": "pytorch_tabnet.tab_model",
+        "documentation": {}
+    },
+    {
+        "label": "TabNetRegressor",
+        "importPath": "pytorch_tabnet.tab_model",
+        "description": "pytorch_tabnet.tab_model",
+        "isExtraImport": true,
+        "detail": "pytorch_tabnet.tab_model",
+        "documentation": {}
+    },
+    {
+        "label": "tensorflow",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tensorflow",
+        "description": "tensorflow",
+        "detail": "tensorflow",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "xgboost",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "xgboost",
+        "description": "xgboost",
+        "detail": "xgboost",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "validate_input",
+        "kind": 2,
+        "importPath": "api.app",
+        "description": "api.app",
+        "peekOfCode": "def validate_input(donor_data, required_fields):\n    \"\"\"Valide les données d'entrée\"\"\"\n    missing = [field for field in required_fields if field not in donor_data]\n    if missing:\n        raise ValueError(f\"Champs manquants: {', '.join(missing)}\")\n    return True\n# ========== FONCTIONS RÉGRESSION ==========\ndef create_regression_features(input_df):\n    \"\"\"Crée toutes les features nécessaires pour la régression\"\"\"\n    # Feature engineering",
+        "detail": "api.app",
+        "documentation": {}
+    },
+    {
+        "label": "create_regression_features",
+        "kind": 2,
+        "importPath": "api.app",
+        "description": "api.app",
+        "peekOfCode": "def create_regression_features(input_df):\n    \"\"\"Crée toutes les features nécessaires pour la régression\"\"\"\n    # Feature engineering\n    input_df['log_recency'] = np.log1p(input_df['days_since_last_donation'])\n    input_df['frequency_per_month'] = input_df['donation_frequency'] * 30\n    input_df['avg_donation_log'] = np.log1p(input_df['avg_donation'])\n    input_df['recency_frequency'] = input_df['log_recency'] * input_df['donation_frequency']\n    input_df['tenure_frequency'] = input_df['donor_tenure'] * input_df['donation_frequency']\n    input_df['monetary_frequency'] = input_df['avg_donation'] * input_df['donation_frequency']\n    # Features optionnelles",
+        "detail": "api.app",
+        "documentation": {}
+    },
+    {
+        "label": "predict_donation",
+        "kind": 2,
+        "importPath": "api.app",
+        "description": "api.app",
+        "peekOfCode": "def predict_donation(model_type, donor_data):\n    try:\n        # Validation des données\n        required_fields = [\n            'total_donations',\n            'total_donated',\n            'avg_donation',\n            'donation_frequency',\n            'days_since_last_donation',\n            'donor_tenure',",
+        "detail": "api.app",
+        "documentation": {}
+    },
+    {
+        "label": "predict_propensity",
+        "kind": 2,
+        "importPath": "api.app",
+        "description": "api.app",
+        "peekOfCode": "def predict_propensity(donor_data):\n    try:\n        # Validation des données\n        required_fields = CLASSIFICATION_FEATURES.copy()\n        required_fields.remove('donor_is_teacher_binary')  # Optionnel\n        validate_input(donor_data, required_fields)\n        # Création du DataFrame\n        input_df = pd.DataFrame([donor_data])\n        # S'assurer que toutes les features sont présentes\n        missing_features = set(CLASSIFICATION_FEATURES) - set(input_df.columns)",
+        "detail": "api.app",
+        "documentation": {}
+    },
+    {
+        "label": "predict",
+        "kind": 2,
+        "importPath": "api.app",
+        "description": "api.app",
+        "peekOfCode": "def predict():\n    try:\n        if not request.is_json:\n            return jsonify({'error': 'Le contenu doit être au format JSON'}), 400\n        data = request.get_json()\n        logger.info(f\"Données reçues (régression): {data}\")\n        if not data or 'model' not in data or 'donor_data' not in data:\n            return jsonify({'error': 'Données ou modèle manquant'}), 400\n        prediction = predict_donation(data['model'], data['donor_data'])\n        return jsonify({'prediction': float(prediction)})",
+        "detail": "api.app",
+        "documentation": {}
+    },
+    {
+        "label": "classify",
+        "kind": 2,
+        "importPath": "api.app",
+        "description": "api.app",
+        "peekOfCode": "def classify():\n    try:\n        if not request.is_json:\n            return jsonify({'error': 'Le contenu doit être au format JSON'}), 400\n        data = request.get_json()\n        logger.info(f\"Données reçues (classification): {data}\")\n        if not data or 'donor_data' not in data:\n            return jsonify({'error': 'Données manquantes'}), 400\n        predictions = predict_propensity(data['donor_data'])\n        return jsonify(predictions)",
+        "detail": "api.app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "api.app",
+        "description": "api.app",
+        "peekOfCode": "app = Flask(__name__)\nCORS(app)\n# Configurer le logging\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger('api')\n# Charger les modèles avec des chemins absolus\nmodel_dir = os.path.join(os.path.dirname(__file__), 'models')\n# ========== CONFIGURATION RÉGRESSION ==========\nREGRESSION_FEATURE_ORDER = [\n    'total_donations', ",
+        "detail": "api.app",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "api.app",
+        "description": "api.app",
+        "peekOfCode": "logger = logging.getLogger('api')\n# Charger les modèles avec des chemins absolus\nmodel_dir = os.path.join(os.path.dirname(__file__), 'models')\n# ========== CONFIGURATION RÉGRESSION ==========\nREGRESSION_FEATURE_ORDER = [\n    'total_donations', \n    'total_donated', \n    'avg_donation', \n    'donation_frequency', \n    'days_since_last_donation',",
+        "detail": "api.app",
+        "documentation": {}
+    },
+    {
+        "label": "model_dir",
+        "kind": 5,
+        "importPath": "api.app",
+        "description": "api.app",
+        "peekOfCode": "model_dir = os.path.join(os.path.dirname(__file__), 'models')\n# ========== CONFIGURATION RÉGRESSION ==========\nREGRESSION_FEATURE_ORDER = [\n    'total_donations', \n    'total_donated', \n    'avg_donation', \n    'donation_frequency', \n    'days_since_last_donation',\n    'donor_tenure', \n    'donation_sequence', ",
+        "detail": "api.app",
+        "documentation": {}
+    },
+    {
+        "label": "REGRESSION_FEATURE_ORDER",
+        "kind": 5,
+        "importPath": "api.app",
+        "description": "api.app",
+        "peekOfCode": "REGRESSION_FEATURE_ORDER = [\n    'total_donations', \n    'total_donated', \n    'avg_donation', \n    'donation_frequency', \n    'days_since_last_donation',\n    'donor_tenure', \n    'donation_sequence', \n    'days_since_prev_donation',\n    'log_recency', ",
+        "detail": "api.app",
+        "documentation": {}
+    },
+    {
+        "label": "CLASSIFICATION_FEATURES",
+        "kind": 5,
+        "importPath": "api.app",
+        "description": "api.app",
+        "peekOfCode": "CLASSIFICATION_FEATURES = [\n    'total_donations', 'total_donated', 'avg_donation',\n    'donation_frequency', 'days_since_last_donation',\n    'donor_tenure', 'donor_is_teacher_binary',\n    'donation_sequence', 'days_since_prev_donation',\n    'donation_day_of_week', 'donation_month'\n]\ntry:\n    # ========== CHARGEMENT MODÈLES RÉGRESSION ==========\n    regression_scaler = joblib.load(os.path.join(model_dir, 'scaler.pkl'))",
+        "detail": "api.app",
+        "documentation": {}
+    },
+    {
+        "label": "validate_input",
+        "kind": 2,
+        "importPath": "api.app2",
+        "description": "api.app2",
+        "peekOfCode": "def validate_input(donor_data):\n    \"\"\"Valide les données d'entrée\"\"\"\n    required_fields = [\n        'total_donations',\n        'total_donated',\n        'avg_donation',\n        'donation_frequency',\n        'days_since_last_donation',\n        'donor_tenure',\n        'donation_sequence',",
+        "detail": "api.app2",
+        "documentation": {}
+    },
+    {
+        "label": "create_features",
+        "kind": 2,
+        "importPath": "api.app2",
+        "description": "api.app2",
+        "peekOfCode": "def create_features(input_df):\n    \"\"\"Crée toutes les features nécessaires dans l'ordre correct\"\"\"\n    # Feature engineering\n    input_df['log_recency'] = np.log1p(input_df['days_since_last_donation'])\n    input_df['frequency_per_month'] = input_df['donation_frequency'] * 30\n    input_df['avg_donation_log'] = np.log1p(input_df['avg_donation'])\n    input_df['recency_frequency'] = input_df['log_recency'] * input_df['donation_frequency']\n    input_df['tenure_frequency'] = input_df['donor_tenure'] * input_df['donation_frequency']\n    input_df['monetary_frequency'] = input_df['avg_donation'] * input_df['donation_frequency']\n    # Features optionnelles",
+        "detail": "api.app2",
+        "documentation": {}
+    },
+    {
+        "label": "predict_donation",
+        "kind": 2,
+        "importPath": "api.app2",
+        "description": "api.app2",
+        "peekOfCode": "def predict_donation(model_type, donor_data):\n    try:\n        # Validation des données\n        validate_input(donor_data)\n        # Création du DataFrame\n        input_df = pd.DataFrame([donor_data])\n        # Création des features dans l'ordre correct\n        input_df = create_features(input_df)\n        # Journalisation pour débogage\n        logger.info(f\"Features utilisées pour la prédiction: {input_df.columns.tolist()}\")",
+        "detail": "api.app2",
+        "documentation": {}
+    },
+    {
+        "label": "predict",
+        "kind": 2,
+        "importPath": "api.app2",
+        "description": "api.app2",
+        "peekOfCode": "def predict():\n    try:\n        if not request.is_json:\n            return jsonify({'error': 'Le contenu doit être au format JSON'}), 400\n        data = request.get_json()\n        logger.info(f\"Données reçues: {data}\")\n        if not data or 'model' not in data or 'donor_data' not in data:\n            return jsonify({'error': 'Données ou modèle manquant'}), 400\n        prediction = predict_donation(data['model'], data['donor_data'])\n        return jsonify({'prediction': float(prediction)})",
+        "detail": "api.app2",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "api.app2",
+        "description": "api.app2",
+        "peekOfCode": "app = Flask(__name__)\nCORS(app)\n# Configurer le logging\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger('api')\n# Charger les modèles avec des chemins absolus\nmodel_dir = os.path.join(os.path.dirname(__file__), 'models')\n# Ordre EXACT des features utilisé pendant l'entraînement\nFEATURE_ORDER = [\n    'total_donations', ",
+        "detail": "api.app2",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "api.app2",
+        "description": "api.app2",
+        "peekOfCode": "logger = logging.getLogger('api')\n# Charger les modèles avec des chemins absolus\nmodel_dir = os.path.join(os.path.dirname(__file__), 'models')\n# Ordre EXACT des features utilisé pendant l'entraînement\nFEATURE_ORDER = [\n    'total_donations', \n    'total_donated', \n    'avg_donation', \n    'donation_frequency', \n    'days_since_last_donation',",
+        "detail": "api.app2",
+        "documentation": {}
+    },
+    {
+        "label": "model_dir",
+        "kind": 5,
+        "importPath": "api.app2",
+        "description": "api.app2",
+        "peekOfCode": "model_dir = os.path.join(os.path.dirname(__file__), 'models')\n# Ordre EXACT des features utilisé pendant l'entraînement\nFEATURE_ORDER = [\n    'total_donations', \n    'total_donated', \n    'avg_donation', \n    'donation_frequency', \n    'days_since_last_donation',\n    'donor_tenure', \n    'donation_sequence', ",
+        "detail": "api.app2",
+        "documentation": {}
+    },
+    {
+        "label": "FEATURE_ORDER",
+        "kind": 5,
+        "importPath": "api.app2",
+        "description": "api.app2",
+        "peekOfCode": "FEATURE_ORDER = [\n    'total_donations', \n    'total_donated', \n    'avg_donation', \n    'donation_frequency', \n    'days_since_last_donation',\n    'donor_tenure', \n    'donation_sequence', \n    'days_since_prev_donation',\n    'log_recency', ",
+        "detail": "api.app2",
+        "documentation": {}
+    },
+    {
+        "label": "_Known",
+        "kind": 6,
+        "importPath": "node_modules.flatted.python.flatted",
+        "description": "node_modules.flatted.python.flatted",
+        "peekOfCode": "class _Known:\n    def __init__(self):\n        self.key = []\n        self.value = []\nclass _String:\n    def __init__(self, value):\n        self.value = value\ndef _array_keys(value):\n    keys = []\n    i = 0",
+        "detail": "node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "_String",
+        "kind": 6,
+        "importPath": "node_modules.flatted.python.flatted",
+        "description": "node_modules.flatted.python.flatted",
+        "peekOfCode": "class _String:\n    def __init__(self, value):\n        self.value = value\ndef _array_keys(value):\n    keys = []\n    i = 0\n    for _ in value:\n        keys.append(i)\n        i += 1\n    return keys",
+        "detail": "node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "parse",
+        "kind": 2,
+        "importPath": "node_modules.flatted.python.flatted",
+        "description": "node_modules.flatted.python.flatted",
+        "peekOfCode": "def parse(value, *args, **kwargs):\n    json = _json.loads(value, *args, **kwargs)\n    wrapped = []\n    for value in json:\n        wrapped.append(_wrap(value))\n    input = []\n    for value in wrapped:\n        if isinstance(value, _String):\n            input.append(value.value)\n        else:",
+        "detail": "node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "stringify",
+        "kind": 2,
+        "importPath": "node_modules.flatted.python.flatted",
+        "description": "node_modules.flatted.python.flatted",
+        "peekOfCode": "def stringify(value, *args, **kwargs):\n    known = _Known()\n    input = []\n    output = []\n    i = int(_index(known, input, value))\n    while i < len(input):\n        output.append(_transform(known, input, input[i]))\n        i += 1\n    return _json.dumps(output, *args, **kwargs)",
+        "detail": "node_modules.flatted.python.flatted",
+        "documentation": {}
+    }
+]
